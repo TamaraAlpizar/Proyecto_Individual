@@ -6,3 +6,5 @@ En la app, los usuarios podrán **crear una cuenta e iniciar sesión** para tene
 
 Una vez registradas las mascotas, el usuario podrá **agendar citas para revisiones o consultas**.  
 Además, la aplicación permitirá **ver las citas agendadas**, así como **consultar el historial médico de cada mascota**, de manera que los dueños puedan llevar un control fácil y rápido del cuidado de sus animales.
+
+![Imagen Mockup](https://github.com/TamaraAlpizar/Proyecto_Individual/tree/main/Mockup)
