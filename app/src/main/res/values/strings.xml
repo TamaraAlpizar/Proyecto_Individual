@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PetCare</string>
+    <string name="ErrorMsgAddPerson">Error al agregar la persona</string>
+    <string name="ErrorMsgUpdatePerson">Error al actualizar la persona</string>
+    <string name="ErrorMsgGetPerson">Error al obtener la persona</string>
+    <string name="ErrorMsgGetPersonById">Error al obtener persona en especifico</string>
+    <string name="ErrorMsgAddPet">Error al agregar la mascota</string>
+    <string name="ErrorMsgUpdatePet">Error al actualizar la mascota</string>
+    <string name="ErrorMsgGetPet">Error al obtener la mascota</string>
+    <string name="ErrorMsgGetPetById">Error al obtener una mascota en especifico</string>
+    <string name="ErrorMsgAddAppointment">Error al agregar la cita</string>
+    <string name="ErrorMsgUpdateAppointment">Error al actualizar la cita</string>
+    <string name="ErrorMsgGetAppointment">Error al obtener la cita</string>
+    <string name="ErrorMsgGetAppointmentById">No se encontró la cita</string>
+</resources>

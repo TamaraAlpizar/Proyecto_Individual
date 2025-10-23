@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PetCare</string>
+    <string name="ErrorMsgAddPerson">Error adding person</string>
+    <string name="ErrorMsgUpdatePerson">Error update Person</string>
+    <string name="ErrorMsgGetPerson">" Error getting person "</string>
+    <string name="ErrorMsgGetPersonById">Error getting specific person</string>
+    <string name="ErrorMsgAddPet">Error adding pet</string>
+    <string name="ErrorMsgUpdatePet">Error update pet</string>
+    <string name="ErrorMsgGetPet">Error getting pet</string>
+    <string name="ErrorMsgGetPetById">Error getting specific pet</string>
+    <string name="ErrorMsgAddAppointment">Error adding appointment</string>
+    <string name="ErrorMsgUpdateAppointment">Error update appointment</string>
+    <string name="ErrorMsgGetAppointment">Error getting appointment</string>
+    <string name="ErrorMsgGetAppointmentById">Error getting specific appointment</string>
+</resources>
