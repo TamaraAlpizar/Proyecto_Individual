@@ -15,19 +15,10 @@
             android:name=".AgendarCitaActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_AddApointment"
-            android:exported="false" />
-        <activity
             android:name=".activity_home"
             android:exported="false" />
         <activity
-            android:name=".activity_PerfilDueno"
-            android:exported="false" />
-        <activity
             android:name=".activity_CreatePetProfile"
-            android:exported="false" />
-        <activity
-            android:name=".activity_appointment"
             android:exported="false" />
         <activity
             android:name=".activity_newAccount"
