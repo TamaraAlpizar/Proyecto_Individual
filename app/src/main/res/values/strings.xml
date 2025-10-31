@@ -12,4 +12,21 @@
     <string name="ErrorMsgUpdateAppointment">Error al actualizar la cita</string>
     <string name="ErrorMsgGetAppointment">Error al obtener la cita</string>
     <string name="ErrorMsgGetAppointmentById">No se encontró la cita</string>
+    <string name="PasswordLogin">Contraseña</string>
+    <string name="EmailLogin">"Correo "</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="btnRegister">Registrarse</string>
+    <string name="TextName">Nombre</string>
+    <string name="TextEmail">Correo</string>
+    <string name="TextPhone">Telefono</string>
+    <string name="TextPassword">Contraseña</string>
+    <string name="TextAddress">Dirección</string>
+    <string name="btnSignUp">Registrarse</string>
+    <string name="TextNamePet">Nombre de la mascota</string>
+    <string name="Textbreed">Raza</string>
+    <string name="txtAgePet">Edad</string>
+    <string name="txtGenderPet">Genero de la mascota</string>
+    <string name="PhotoPet">Foto de la mascota</string>
+    <string name="TextDescription">Decripcion de la mascota</string>
+    <string name="btnSavePet">Guardar Mascota</string>
 </resources>
