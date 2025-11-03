@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_CreatePetProfile">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Crear Perfil de Perro"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/et_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ej: Rocky"
+                android:inputType="textPersonName"
+
+                android:padding="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Raza"
+                android:layout_marginBottom="4dp"/>
+            <Spinner
+                android:id="@+id/txtBreedPet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="12dp"
+
+                android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Edad"
+                android:layout_marginBottom="4dp"/>
+
+            <EditText
+                android:id="@+id/txtAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:inputType="number"
+
+                android:padding="12dp"
+                android:text="@string/txtAgePet" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unidad"
+                android:layout_marginBottom="4dp"/>
+            <Spinner
+                android:id="@+id/spinner_unidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="12dp"
+
+                android:layout_marginBottom="16dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Género"
+                android:layout_marginBottom="8dp"/>
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_marginBottom="16dp">
+                <RadioButton
+                    android:id="@+id/rb_macho"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Macho"
+                    android:padding="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:checked="true" />
+                <RadioButton
+                    android:id="@+id/rb_hembra"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hembra"
+                    android:padding="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Foto"
+                android:layout_marginBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+
+                <ImageButton
+                    android:id="@+id/btn_foto_camara"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="16dp"
+                    android:contentDescription="Tomar foto"
+                    android:scaleType="centerInside"
+                    android:src="@drawable/ic_camera_alt_black_24dp"
+                    tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+                <Button
+                    android:id="@+id/btnPhotoPet"
+                    style="@style/Widget.AppCompat.Button.Borderless"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:backgroundTint="#00BCD4"
+                    android:drawablePadding="8dp"
+                    android:text="@string/PhotoPet"
+                    android:textColor="#3F51B5" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toca el cuadro o el botón para elegir una imagen."
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Descripción"
+                android:layout_marginBottom="4dp"/>
+            <EditText
+                android:id="@+id/et_descripcion"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:hint="Escribe una breve biografía..."
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:layout_marginBottom="24dp" />
+
+            <Button
+                android:id="@+id/btnSavePetProfile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#007AFF"
+                android:padding="14dp"
+                android:text="@string/btnSavePet"
+                android:textColor="@android:color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
