@@ -7,9 +7,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".activity_CreatePetProfile">
+    tools:context=".HomeActivity">
 
-    <!-- Header -->
+
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
@@ -42,10 +42,13 @@
                 android:textStyle="bold"/>
 
             <TextView
+                android:id="@+id/tvGreetingHome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Hola Tamara"
-                android:textSize="14sp"/>
+                android:hint="@string/tvGreetingHome"
+                android:text="Hola"
+                android:textSize="14sp" />
+
         </LinearLayout>
     </LinearLayout>
 
@@ -66,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- First Row Buttons -->
+
     <LinearLayout
         android:id="@+id/row1"
         android:layout_width="0dp"
@@ -123,7 +126,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Second Row Buttons -->
+
     <LinearLayout
         android:id="@+id/row2"
         android:layout_width="0dp"
@@ -158,7 +161,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Bottom Navigation -->
+
     <LinearLayout
         android:id="@+id/bottomNav"
         android:layout_width="0dp"

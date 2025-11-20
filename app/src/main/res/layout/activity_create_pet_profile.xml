@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_CreatePetProfile">
+    tools:context=".CreatePetProfileActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -21,29 +18,78 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crear Perfil de Perro"
+                android:text="Crear Perfil de Mascota"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp" />
+
+
+            <ImageView
+                android:id="@+id/imgPhotoPet"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_background"
+                android:background="#DDDDDD"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="Foto de la mascota" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Toca el botón de cámara o galería para agregar una imagen"
+                android:layout_gravity="center"
+                android:textSize="12sp"
+                android:layout_marginBottom="16dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="20dp">
+
+                <ImageButton
+                    android:id="@+id/btn_foto_camara"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="Tomar foto"
+                    android:scaleType="centerInside"
+                    tools:srcCompat="@android:drawable/ic_menu_camera" />
+
+                <Button
+                    android:id="@+id/btnPhotoPet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Galería" />
+            </LinearLayout>
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nombre"
                 android:layout_marginBottom="4dp"/>
+
             <EditText
                 android:id="@+id/et_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Ej: Rocky"
-                android:inputType="textPersonName"
-
                 android:padding="12dp"
-                android:layout_marginBottom="16dp" />
+                android:hint="Ej: Rocky"
+                android:layout_marginBottom="16dp"/>
+
 
             <TextView
                 android:layout_width="wrap_content"
@@ -54,10 +100,9 @@
                 android:id="@+id/txtBreedPet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
 
-                android:padding="12dp"
 
-                android:layout_marginBottom="16dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -68,95 +113,53 @@
                 android:id="@+id/txtAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="16dp"
                 android:inputType="number"
-
                 android:padding="12dp"
-                android:text="@string/txtAgePet" />
+                android:layout_marginBottom="16dp" />
+
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Unidad"
                 android:layout_marginBottom="4dp"/>
+
             <Spinner
                 android:id="@+id/spinner_unidad"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"/>
 
-                android:padding="12dp"
 
-                android:layout_marginBottom="16dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Género"
                 android:layout_marginBottom="8dp"/>
+
             <RadioGroup
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="2"
                 android:layout_marginBottom="16dp">
+
                 <RadioButton
                     android:id="@+id/rb_macho"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Macho"
-                    android:padding="12dp"
                     android:layout_weight="1"
-                    android:gravity="center"
-                    android:checked="true" />
+                    android:text="Macho"
+                    android:checked="true"/>
+
                 <RadioButton
                     android:id="@+id/rb_hembra"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:text="Hembra"
-                    android:padding="12dp"
                     android:layout_weight="1"
-                    android:gravity="center" />
+                    android:text="Hembra"/>
             </RadioGroup>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Foto"
-                android:layout_marginBottom="8dp"/>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
-                android:layout_marginBottom="8dp">
-
-                <ImageButton
-                    android:id="@+id/btn_foto_camara"
-                    android:layout_width="60dp"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="16dp"
-                    android:contentDescription="Tomar foto"
-                    android:scaleType="centerInside"
-                    android:src="@drawable/ic_camera_alt_black_24dp"
-                    tools:srcCompat="@android:drawable/ic_menu_camera" />
-
-                <Button
-                    android:id="@+id/btnPhotoPet"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:backgroundTint="#00BCD4"
-                    android:drawablePadding="8dp"
-                    android:text="@string/PhotoPet"
-                    android:textColor="#3F51B5" />
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Toca el cuadro o el botón para elegir una imagen."
-                android:textSize="12sp"
-                android:layout_marginBottom="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -167,21 +170,22 @@
                 android:id="@+id/et_descripcion"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
-                android:hint="Escribe una breve biografía..."
+                android:padding="12dp"
                 android:gravity="top"
                 android:inputType="textMultiLine"
-                android:padding="12dp"
-                android:layout_marginBottom="24dp" />
+                android:hint="Escribe una breve biografía..."
+                android:layout_marginBottom="24dp"/>
+
 
             <Button
                 android:id="@+id/btnSavePetProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#007AFF"
+                android:text="Guardar"
                 android:padding="14dp"
-                android:text="@string/btnSavePet"
+                android:textSize="18sp"
                 android:textColor="@android:color/white"
-                android:textSize="18sp" />
+                android:backgroundTint="#007AFF"/>
 
         </LinearLayout>
     </ScrollView>

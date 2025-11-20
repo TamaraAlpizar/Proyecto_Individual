@@ -3,24 +3,29 @@ package Data
 import Entity.Pet
 
 object PetMemoryDataManager : IPetDataManager {
-    private var petList = mutableListOf<Pet>()
+
+    private val petList = mutableListOf<Pet>()
 
     override fun add(pet: Pet) {
         petList.add(pet)
     }
 
     override fun update(pet: Pet) {
-        remove(pet.Id)
+        remove(pet.id)
         add(pet)
     }
 
     override fun remove(id: String) {
-        petList.removeIf { it.Id.trim() == id.trim() }
+        petList.removeIf { it.id.trim() == id.trim() }
     }
 
     override fun getAll(): List<Pet> = petList.toList()
 
     override fun getById(id: String): Pet? {
-        return petList.find { it.Id.trim() == id.trim() }
+        return petList.find { it.id.trim() == id.trim() }
+    }
+
+    override fun getByOwnerId(ownerId: String): List<Pet> {
+        return petList.filter { it.ownerId.trim() == ownerId.trim() }
     }
 }

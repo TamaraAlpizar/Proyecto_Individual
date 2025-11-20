@@ -29,4 +29,5 @@
     <string name="txtGenderPet">Gender Pet</string>
     <string name="PhotoPet">Photo Pet</string>
     <string name="TextDescription">Pet Description</string>
+    <string name="tvGreetingHome">Greeting</string>
 </resources>

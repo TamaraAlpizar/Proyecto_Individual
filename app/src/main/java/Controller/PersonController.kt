@@ -1,20 +1,19 @@
 package Controller
 
-
 import Data.PersonMemoryDataManager
 import Entity.Person
 import android.content.Context
 import cr.ac.utn.petcare.R
 
-class PersonController (private val context: Context) {
+class PersonController(private val context: Context) {
 
     private val dataManager = PersonMemoryDataManager
 
-    fun addPerson(person: android.app.Person){
+    fun addPerson(person: Person) {
         try {
             dataManager.add(person)
-        }catch (e: Exception){
-            throw e
+        } catch (e: Exception) {
+            throw Exception(context.getString(R.string.ErrorMsgAddPerson))
         }
     }
 
@@ -28,7 +27,7 @@ class PersonController (private val context: Context) {
 
     fun getPeople(): List<Person> {
         try {
-            return dataManager.getAll().map { it as Person }
+            return dataManager.getAll()
         } catch (e: Exception) {
             throw Exception(context.getString(R.string.ErrorMsgGetPerson))
         }

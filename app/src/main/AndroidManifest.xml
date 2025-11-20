@@ -6,23 +6,30 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logopetcare"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/logopetcare"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
+        <activity
+            android:name=".dialog_edit_person"
+            android:exported="true" />
+        <activity
+            android:name=".PersonDetailsActivity"
+            android:exported="true"
+            android:theme="@style/Theme.PetCare" />
         <activity
             android:name=".AgendarCitaActivity"
             android:exported="false" />
         <activity
-            android:name=".activity_home"
-            android:exported="false" />
+            android:name=".HomeActivity"
+            android:exported="true" />
         <activity
-            android:name=".activity_CreatePetProfile"
-            android:exported="false" />
+            android:name=".CreatePetProfileActivity"
+            android:exported="true" />
         <activity
-            android:name=".activity_newAccount"
-            android:exported="false" />
+            android:name=".NewAccountActivity"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
