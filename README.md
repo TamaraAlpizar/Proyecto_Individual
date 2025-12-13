@@ -127,3 +127,6 @@ Eliminar cita
 DELETE /appointments/:id
 
 DELETE /appointments/{id}
+
+# Link del video
+https://youtu.be/UBROKYf7MHI
