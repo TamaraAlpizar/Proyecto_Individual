@@ -8,4 +8,5 @@ interface IPetDataManager {
     fun remove(id: String)
     fun getAll(): List<Pet>
     fun getById(id: String): Pet?
+    fun getByOwnerId(ownerId: String): List<Pet>
 }

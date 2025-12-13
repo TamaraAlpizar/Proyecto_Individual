@@ -2,44 +2,36 @@ package Data
 
 import Entity.Person
 
+object PersonMemoryDataManager : IPersonDataManager {
+    private val personList = mutableListOf<Person>()
 
-object PersonMemoryDataManager: IPersonDataManager {
-    private var personList = mutableListOf<Person>()
-
-    fun add(person: Unit){
+    override fun add(person: Person) {
         personList.add(person)
     }
 
     override fun remove(id: String) {
-        personList.removeIf { it.Id.trim()==id.trim() }
+        personList.removeIf { it.Id.trim() == id.trim() }
     }
 
     override fun update(person: Person) {
-        remove(id = person.Id)
-        add(person)
+        val index = personList.indexOfFirst { it.Id == person.Id }
+        if (index != -1) {
+            personList[index] = person
+        }
     }
 
-    override fun getAll(): List<android.app.Person> {
-        return personList.map { it as android.app.Person }
+    override fun getAll(): List<Person> {
+        return personList
     }
 
     override fun getById(id: String): Person? {
-        try {
-            var result = personList.
-            filter {it.Id.trim() == id.trim()}
-            return if (result.any()) result[0] else null
-        }catch (e: Exception){
-            throw e
-        }
+        return personList.find { it.Id.trim() == id.trim() }
     }
 
     override fun getByFullName(fullName: String): Person? {
-        try {
-            var result = personList.
-            filter {it.FullName().trim() == fullName.trim()}
-            return if (result.any()) result[0] else null
-        }catch (e: Exception){
-            throw e
-        }
+        return personList.find { it.FullName().trim() == fullName.trim() }
+    }
+    override fun getByEmail(email: String): Person? {
+        return personList.find { it.Email.trim().equals(email.trim(), ignoreCase = true) }
     }
 }

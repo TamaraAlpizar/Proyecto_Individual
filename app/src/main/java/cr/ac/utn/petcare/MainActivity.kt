@@ -1,20 +1,57 @@
 package cr.ac.utn.petcare
 
+import Data.PersonMemoryDataManager
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_main)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        val txtEmail = findViewById<EditText>(R.id.editTextText3)
+        val txtPassword = findViewById<EditText>(R.id.editTextTextPassword4)
+        val btnLogin = findViewById<Button>(R.id.btnLogin)
+        val btnRegister = findViewById<Button>(R.id.btnRegister)
+
+
+        btnLogin.setOnClickListener {
+
+            val email = txtEmail.text.toString().trim()
+            val password = txtPassword.text.toString().trim()
+
+            if (email.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill in all fields.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val person = PersonMemoryDataManager.getByEmail(email)
+
+            if (person == null) {
+                Toast.makeText(this, "User not found.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (person.Password != password) {
+                Toast.makeText(this, "Incorrect password.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+
+            val intent = Intent(this, HomeActivity::class.java)
+            intent.putExtra("person_id", person.Id)
+            startActivity(intent)
+        }
+
+
+        btnRegister.setOnClickListener {
+            val intent = Intent(this, NewAccountActivity::class.java)
+            startActivity(intent)
         }
     }
 }

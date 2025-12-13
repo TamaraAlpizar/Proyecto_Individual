@@ -4,18 +4,19 @@ import android.graphics.Bitmap
 import java.util.Date
 
 class Pet {
-    private var id: String = ""
-    private var name: String = ""
-    private var breed: String = ""
-    private var gender: String = ""
-    private var age: Int = 0
-    private var weight: Double = 0.0
-    private var ownerId: String = ""
-    private lateinit var photo: Bitmap
-    private var notes: String = ""
+     var id: String = ""
+     var name: String = ""
+     var breed: String = ""
+     var gender: String = ""
+     var age: Int = 0
+     var weight: Double = 0.0
+     var ownerId: String = ""
+
+    var photo: Bitmap? = null
+     var notes: String = ""
 
     constructor(id: String, name: String, breed: String, gender: String,
-                age: Int, weight: Double, ownerId: String, notes: String)
+                age: Int, weight: Double, ownerId: String, notes: String, photo: Bitmap)
     {
         this.id = id
         this.name = name
@@ -25,6 +26,7 @@ class Pet {
         this.weight = weight
         this.ownerId = ownerId
         this.notes = notes
+        this.photo = photo
     }
 
     var Id: String
@@ -58,4 +60,5 @@ class Pet {
     var Notes: String
         get() = this.notes
         set(value) { this.notes = value }
+
 }

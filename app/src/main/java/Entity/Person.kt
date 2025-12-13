@@ -7,7 +7,7 @@ class Person {
     private var sLastName: String = ""
     private var email: String = ""
     private var password: String = ""
-    private var phone:  Int = 0
+    private var phone: Int = 0
     private var address: String = ""
 
 
@@ -34,38 +34,54 @@ class Person {
 
     var Id: String
         get() = this.id
-        set(value) { this.id = value }
+        set(value) {
+            this.id = value
+        }
 
     var Name: String
         get() = this.name
-        set(value) { this.name = value }
+        set(value) {
+            this.name = value
+        }
 
     var FLastName: String
         get() = this.fLastName
-        set(value) { this.fLastName = value }
+        set(value) {
+            this.fLastName = value
+        }
 
     var SLastName: String
         get() = this.sLastName
-        set(value) { this.sLastName = value }
+        set(value) {
+            this.sLastName = value
+        }
 
     var Email: String
         get() = this.email
-        set(value) { this.email = value }
+        set(value) {
+            this.email = value
+        }
 
     var Password: String
         get() = this.password
-        set(value) { this.password = value }
+        set(value) {
+            this.password = value
+        }
 
     var Phone: Int
         get() = this.phone
-        set(value) { this.phone = value }
+        set(value) {
+            this.phone = value
+        }
 
     var Address: String
         get() = this.address
-        set(value) { this.address = value }
+        set(value) {
+            this.address = value
+        }
 
 
-    fun FullName()="$this.name $this.FLastName $this.sLastName"
-
+    fun FullName(): String {
+        return "$name $fLastName $sLastName"
     }
-
+}
