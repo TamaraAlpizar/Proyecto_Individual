@@ -9,19 +9,27 @@ Además, la aplicación permitirá **ver las citas agendadas**, así como **cons
 
 ![Imagen Mockup](https://github.com/TamaraAlpizar/Proyecto_Individual/blob/main/Mockup/Mockup.png)
 
-Base URL de la API
-https://petcare-rg-hjcydddmfpg2eud2.canadacentral-01.azurewebsites.net
+Endpoint de prueba (Health Check)
+🔹 Comprobar que la API funciona
 
-1. ENDPOINT DE PRUEBA – Comprobar que la API funciona
-✔ GET /
-Descripción: "🐶 Veterinaria API - ¡TODO FUNCIONA PERFECTO!"
+GET /
+
+Respuesta esperada:
+
+🐶 Veterinaria API - ¡TODO FUNCIONA PERFECTO!
+
+
 Ejemplo:
+
 GET https://petcare-rg-hjcydddmfpg2eud2.canadacentral-01.azurewebsites.net/
 
-2. ENDPOINTS DE DUEÑOS (Owners)
-➤ Crear dueño
+Owners (Dueños)
+Crear dueño
+
 POST /owners
+
 Body (JSON):
+
 {
   "name": "Fabiana",
   "fLastName": "Castro",
@@ -31,17 +39,32 @@ Body (JSON):
   "phone": "8888-8888",
   "address": "Costa Rica"
 }
-➤ Obtener todos los dueños
+
+Obtener todos los dueños
+
 GET /owners
-➤ Editar dueño
+
+GET /owners
+
+Editar dueño
+
 PUT /owners/:id
-➤ Eliminar dueño
+
+PUT /owners/{id}
+
+🗑️ Eliminar dueño
+
 DELETE /owners/:id
 
-3. ENDPOINTS DE MASCOTAS (Pets)
-➤ Crear mascota
+DELETE /owners/{id}
+
+Pets (Mascotas)
+Crear mascota
+
 POST /pets
+
 Body (JSON):
+
 {
   "petName": "Firulais",
   "breed": "Labrador",
@@ -51,16 +74,32 @@ Body (JSON):
   "ownerId": "ID_DEL_DUEÑO",
   "notes": "Muy juguetón"
 }
-➤ Obtener todas las mascotas
+
+Obtener todas las mascotas
+
 GET /pets
-➤ Editar mascota
+
+GET /pets
+
+Editar mascota
+
 PUT /pets/:id
-➤ Eliminar mascota
+
+PUT /pets/{id}
+
+🗑️ Eliminar mascota
+
 DELETE /pets/:id
-ENDPOINTS DE CITAS (Appointments)
-➤ Crear cita
+
+DELETE /pets/{id}
+
+Appointments (Citas)
+Crear cita
+
 POST /appointments
+
 Body (JSON):
+
 {
   "petId": "ID_MASCOTA",
   "serviceType": "Vacunación",
@@ -68,11 +107,23 @@ Body (JSON):
   "hour": "14:00",
   "notes": "Revisión general"
 }
-➤ Obtener todas las citas
+
+Obtener todas las citas
+
 GET /appointments
-(ordenadas descendentemente por fecha)
-➤ Editar estado de la cita
+
+Las citas se devuelven ordenadas de forma descendente por fecha
+
+GET /appointments
+
+Editar estado de la cita
+
 PUT /appointments/:id
-➤ Eliminar cita
+
+PUT /appointments/{id}
+
+Eliminar cita
+
 DELETE /appointments/:id
 
+DELETE /appointments/{id}
