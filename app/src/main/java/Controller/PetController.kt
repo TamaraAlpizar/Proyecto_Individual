@@ -1,12 +1,11 @@
 package Controller
 
-
 import Data.PetMemoryDataManager
 import Entity.Pet
 import android.content.Context
 import cr.ac.utn.petcare.R
 
-class PetController  (private val context: Context) {
+class PetController(private val context: Context) {
 
     private val dataManager = PetMemoryDataManager
 
@@ -37,5 +36,19 @@ class PetController  (private val context: Context) {
     fun getById(id: String): Pet {
         return dataManager.getById(id)
             ?: throw Exception(context.getString(R.string.ErrorMsgGetPetById))
+    }
+
+
+    fun getPetsByOwner(ownerId: String): List<Pet> {
+        try {
+            val pets = dataManager.getByOwnerId(ownerId)
+
+
+            android.util.Log.d("PetController", "ownerId = $ownerId, mascotas encontradas = ${pets.size}")
+
+            return pets
+        } catch (e: Exception) {
+            throw Exception(context.getString(R.string.ErrorMsgGetPet))
+        }
     }
 }

@@ -5,31 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-
     <EditText
         android:id="@+id/etEditName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre" />
+        android:hint="@string/nombre" />
+
+    <EditText
+        android:id="@+id/etEditFirstLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/primer_apellido"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:id="@+id/etEditSecondLastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/segundo_apellido"
+        android:layout_marginTop="10dp" />
 
     <EditText
         android:id="@+id/etEditEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="@string/email"
         android:layout_marginTop="10dp" />
 
     <EditText
         android:id="@+id/etEditPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Teléfono"
+        android:hint="@string/telefono"
         android:layout_marginTop="10dp" />
 
     <EditText
         android:id="@+id/etEditAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dirección"
+        android:hint="@string/direccion"
         android:layout_marginTop="10dp" />
 </LinearLayout>

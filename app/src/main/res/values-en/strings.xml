@@ -1,33 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PetCare</string>
-    <string name="ErrorMsgAddPerson">Error adding person</string>
-    <string name="ErrorMsgUpdatePerson">Error update Person</string>
-    <string name="ErrorMsgGetPerson">" Error getting person "</string>
-    <string name="ErrorMsgGetPersonById">Error getting specific person</string>
-    <string name="ErrorMsgAddPet">Error adding pet</string>
-    <string name="ErrorMsgUpdatePet">Error update pet</string>
-    <string name="ErrorMsgGetPet">Error getting pet</string>
-    <string name="ErrorMsgGetPetById">Error getting specific pet</string>
-    <string name="ErrorMsgAddAppointment">Error adding appointment</string>
-    <string name="ErrorMsgUpdateAppointment">Error update appointment</string>
-    <string name="ErrorMsgGetAppointment">Error getting appointment</string>
-    <string name="ErrorMsgGetAppointmentById">Error getting specific appointment</string>
-    <string name="PasswordLogin">Password Login</string>
-    <string name="EmailLogin">Email Login</string>
-    <string name="btnLogin">Button Login</string>
-    <string name="btnRegister">Button Register</string>
-    <string name="TextName">Name</string>
-    <string name="TextEmail">Email</string>
-    <string name="TextPhone">Phone Number</string>
-    <string name="TextPassword">Password</string>
-    <string name="TextAddress">Address</string>
-    <string name="btnSignUp">Sign Up</string>
-    <string name="TextNamePet">Name Pet</string>
-    <string name="Textbreed">Breed</string>
-    <string name="txtAgePet">Age</string>
-    <string name="txtGenderPet">Gender Pet</string>
-    <string name="PhotoPet">Photo Pet</string>
-    <string name="TextDescription">Pet Description</string>
-    <string name="tvGreetingHome">Greeting</string>
+    <!-- General -->
+    <string name="back">Back</string>
+    <string name="add_appointment">Add Appointment</string>
+    <string name="my_appointments">My Appointments</string>
+
+    <!-- Appointment summary -->
+    <string name="appointment_summary_title">My Appointments</string>
+
+    <!-- Create pet profile -->
+    <string name="create_pet_profile">Create Pet Profile</string>
+    <string name="pet_photo">Pet photo</string>
+    <string name="tap_to_add_image">Tap to add an image</string>
+    <string name="take_photo">Take photo</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="pet_name_label">Pet name</string>
+    <string name="pet_name_hint">Enter name</string>
+    <string name="breed_label">Breed</string>
+    <string name="pet_age_label">Age</string>
+    <string name="unit_label">Unit</string>
+    <string name="gender_label">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="description_label">Description</string>
+    <string name="pet_description_hint">Describe your pet</string>
+    <string name="save">Save</string>
+
+    <!-- Edit appointment dialog -->
+    <string name="edit_pet_name">Pet name</string>
+    <string name="edit_service">Service</string>
+    <string name="edit_date">Date (dd/mm/yyyy)</string>
+    <string name="edit_time">Time (hh:mm)</string>
+
+    <!-- Person -->
+    <string name="nombre">Name</string>
+    <string name="primer_apellido">First last name</string>
+    <string name="segundo_apellido">Second last name</string>
+    <string name="email">Email</string>
+    <string name="telefono">Phone</string>
+    <string name="direccion">Address</string>
+
+    <!-- Pet (edit) -->
+    <string name="raza">Breed</string>
+    <string name="genero">Gender</string>
+    <string name="edad">Age</string>
+    <string name="peso">Weight</string>
+    <string name="notas">Notes</string>
+
+    <!-- Home -->
+    <string name="pet_care">PetCare</string>
+    <string name="hola">Hello</string>
+    <string name="buscar_mascota_cita">Search pet or appointment</string>
+    <string name="mis_mascotas">My Pets</string>
+    <string name="citas">Appointments</string>
+    <string name="configuracion_y_perfil">Settings and profile</string>
+    <string name="editar_datos_personales">Edit personal data</string>
+
+    <!-- Login -->
+    <string name="login_title">Login</string>
+    <string name="email_login">Email</string>
+    <string name="password_login">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <!-- New Account / Sign Up -->
+    <string name="create_new_account">Create new account</string>
+    <string name="name_person">Name</string>
+    <string name="first_last_name">First last name</string>
+    <string name="second_last_name">Second last name</string>
+    <string name="password">Password</string>
+    <string name="phone_number">Phone number</string>
+    <string name="address">Address</string>
+    <string name="create_account">Create account</string>
+
+    <!-- Person Details -->
+    <string name="person_information">Person information</string>
+    <string name="full_name_label">Full name:</string>
+    <string name="email_label">Email:</string>
+    <string name="phone_label">Phone:</string>
+    <string name="address_label">Address:</string>
+    <string name="edit_person">Edit person</string>
+    <string name="back_to_home">Back</string>
+
+    <!-- Pet Summary -->
+    <string name="my_pets">My Pets</string>
+    <string name="add_pet">Add Pet</string>
+    <!-- Cards / Items -->
+    <string name="pet_name_placeholder">Pet name</string>
+    <string name="service_placeholder">Service</string>
+    <string name="appointment_datetime_placeholder">01/01/2025 - 10:00</string>
+
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <!-- Appointments / UI -->
+    <string name="scheduled_appointments">Scheduled appointments</string>
+    <string name="schedule_appointment">Schedule appointment</string>
+    <string name="service_details">Service details</string>
+    <string name="select_pet">Select pet</string>
+    <string name="service_type">Service type</string>
+    <string name="date_and_time">Date and time</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="appointment_summary">Appointment summary</string>
+    <string name="pet">Pet</string>
+    <string name="service">Service</string>
+    <string name="estimated_date">Estimated date</string>
+    <string name="confirm_appointment">Confirm appointment</string>
+    <string name="first_fragment_label">First Screen</string>
+    <string name="second_fragment_label">Second Screen</string>
+    <!-- Appointment error messages -->
+    <string name="ErrorMsgAddAppointment">Error adding the appointment</string>
+    <string name="ErrorMsgUpdateAppointment">Error updating the appointment</string>
+    <string name="ErrorMsgGetAppointment">Error retrieving appointments</string>
+    <string name="ErrorMsgGetAppointmentById">Appointment not found</string>
+    <!-- Person error messages -->
+    <string name="ErrorMsgAddPerson">Error adding the person</string>
+    <string name="ErrorMsgUpdatePerson">Error updating the person</string>
+    <string name="ErrorMsgGetPerson">Error retrieving people</string>
+    <string name="ErrorMsgGetPersonById">Person not found</string>
+    <!-- Pet error messages -->
+    <string name="ErrorMsgAddPet">Error adding the pet</string>
+    <string name="ErrorMsgUpdatePet">Error updating the pet</string>
+    <string name="ErrorMsgGetPet">Error retrieving pets</string>
+    <string name="ErrorMsgGetPetById">Pet not found</string>
 </resources>

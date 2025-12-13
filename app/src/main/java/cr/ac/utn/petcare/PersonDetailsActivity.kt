@@ -1,101 +1,154 @@
 package cr.ac.utn.petcare
-
-import Entity.Person
-import Entity.Pet
-import Data.PersonMemoryDataManager
-import Data.PetMemoryDataManager
 import android.app.AlertDialog
 import android.os.Bundle
-import android.widget.*
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import cr.ac.utn.petcare.network.ApiClient
+import cr.ac.utn.petcare.network.UpdateOwnerRequest
+import kotlinx.coroutines.launch
+import retrofit2.HttpException
 
 class PersonDetailsActivity : AppCompatActivity() {
 
-    private var person: Person? = null
-    private var pet: Pet? = null
+    private val PREFS = "petcare_prefs"
+
+    private val KEY_OWNER_ID = "owner_id"
+    private val KEY_OWNER_NAME = "owner_name"
+    private val KEY_OWNER_FLAST = "owner_fLastName"
+    private val KEY_OWNER_SLAST = "owner_sLastName"
+    private val KEY_OWNER_EMAIL = "owner_email"
+    private val KEY_OWNER_PHONE = "owner_phone"
+    private val KEY_OWNER_ADDRESS = "owner_address"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_person_details)
 
-        val personId = intent.getStringExtra("person_id")
-        person = personId?.let { PersonMemoryDataManager.getById(it) }
-
-        loadPersonInfo()
-        loadPetInfo()
-
         findViewById<Button>(R.id.btnBackToHome).setOnClickListener { finish() }
         findViewById<Button>(R.id.btnEditPerson).setOnClickListener { editPerson() }
-        findViewById<Button>(R.id.btnEditPet).setOnClickListener { editPet() }
-        findViewById<Button>(R.id.btnAddPet).setOnClickListener { addNewPet() }
+
+        loadPersonInfo()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        loadPersonInfo()
     }
 
     private fun loadPersonInfo() {
-        person?.let {
-            findViewById<TextView>(R.id.tvName).text = "Nombre: ${it.Name}"
-            findViewById<TextView>(R.id.tvEmail).text = "Email: ${it.Email}"
-            findViewById<TextView>(R.id.tvPhone).text = "Teléfono: ${it.Phone}"
-            findViewById<TextView>(R.id.tvAddress).text = "Dirección: ${it.Address}"
-        }
+        val prefs = getSharedPreferences(PREFS, MODE_PRIVATE)
+
+        val name = prefs.getString(KEY_OWNER_NAME, "") ?: ""
+        val fLast = prefs.getString(KEY_OWNER_FLAST, "") ?: ""
+        val sLast = prefs.getString(KEY_OWNER_SLAST, "") ?: ""
+        val email = prefs.getString(KEY_OWNER_EMAIL, "") ?: ""
+        val phone = prefs.getString(KEY_OWNER_PHONE, "") ?: ""
+        val address = prefs.getString(KEY_OWNER_ADDRESS, "") ?: ""
+
+        findViewById<TextView>(R.id.tvName).text = "Nombre: $name $fLast $sLast"
+        findViewById<TextView>(R.id.tvEmail).text = "Correo: $email"
+        findViewById<TextView>(R.id.tvPhone).text = "Teléfono: $phone"
+        findViewById<TextView>(R.id.tvAddress).text = "Dirección: $address"
     }
-
-    private fun loadPetInfo() {
-        val ownerId = person?.Id ?: return
-        pet = PetMemoryDataManager.getByOwnerId(ownerId)
-
-        pet?.let {
-            findViewById<TextView>(R.id.tvPetName).text = "Nombre: ${it.Name}"
-            findViewById<TextView>(R.id.tvPetBreed).text = "Raza: ${it.Breed}"
-            findViewById<TextView>(R.id.tvPetGender).text = "Género: ${it.Gender}"
-            findViewById<TextView>(R.id.tvPetAge).text = "Edad: ${it.Age}"
-            findViewById<TextView>(R.id.tvPetWeight).text = "Peso: ${it.Weight}"
-            findViewById<TextView>(R.id.tvPetNotes).text = "Notas: ${it.Notes}"
-        }
-    }
-
 
     private fun editPerson() {
-        val p = person ?: return
+        val prefs = getSharedPreferences(PREFS, MODE_PRIVATE)
+
+        val ownerId = prefs.getString(KEY_OWNER_ID, "") ?: ""
+        if (ownerId.isEmpty()) {
+            Toast.makeText(this, "No se encontró el ID del dueño. Inicie sesión de nuevo.", Toast.LENGTH_LONG).show()
+            return
+        }
 
         val dialogView = layoutInflater.inflate(R.layout.activity_dialog_edit_person, null)
 
         val etName = dialogView.findViewById<EditText>(R.id.etEditName)
+        val etFLast = dialogView.findViewById<EditText>(R.id.etEditFirstLastName)
+        val etSLast = dialogView.findViewById<EditText>(R.id.etEditSecondLastName)
         val etEmail = dialogView.findViewById<EditText>(R.id.etEditEmail)
         val etPhone = dialogView.findViewById<EditText>(R.id.etEditPhone)
         val etAddress = dialogView.findViewById<EditText>(R.id.etEditAddress)
 
 
-        etName.setText(p.Name)
-        etEmail.setText(p.Email)
-        etPhone.setText(p.Phone.toString())
-        etAddress.setText(p.Address)
+        etName.setText(prefs.getString(KEY_OWNER_NAME, ""))
+        etFLast.setText(prefs.getString(KEY_OWNER_FLAST, ""))
+        etSLast.setText(prefs.getString(KEY_OWNER_SLAST, ""))
+        etEmail.setText(prefs.getString(KEY_OWNER_EMAIL, ""))
+        etPhone.setText(prefs.getString(KEY_OWNER_PHONE, ""))
+        etAddress.setText(prefs.getString(KEY_OWNER_ADDRESS, ""))
 
         val dialog = AlertDialog.Builder(this)
-            .setTitle("Editar Información")
+            .setTitle("Editar información")
             .setView(dialogView)
-            .setPositiveButton("Guardar") { _, _ ->
-                p.Name = etName.text.toString()
-                p.Email = etEmail.text.toString()
-                p.Phone = etPhone.text.toString().toIntOrNull() ?: 0
-                p.Address = etAddress.text.toString()
-
-                PersonMemoryDataManager.update(p)
-
-                loadPersonInfo()
-
-                Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show()
-            }
+            .setPositiveButton("Guardar", null)
             .setNegativeButton("Cancelar", null)
             .create()
 
         dialog.show()
-    }
 
-    private fun editPet() {
-        Toast.makeText(this, "Editar mascota ", Toast.LENGTH_SHORT).show()
-    }
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setOnClickListener {
 
-    private fun addNewPet() {
-        Toast.makeText(this, "Agregar mascota ", Toast.LENGTH_SHORT).show()
+            val nameStr = etName.text.toString().trim()
+            val fLastStr = etFLast.text.toString().trim()
+            val sLastStr = etSLast.text.toString().trim()
+            val emailStr = etEmail.text.toString().trim()
+            val phoneStr = etPhone.text.toString().trim()
+            val addressStr = etAddress.text.toString().trim()
+
+            if (nameStr.isEmpty() || fLastStr.isEmpty() || emailStr.isEmpty() || phoneStr.isEmpty() || addressStr.isEmpty()) {
+                Toast.makeText(this, "Complete los campos obligatorios", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val body = UpdateOwnerRequest(
+                name = nameStr,
+                fLastName = fLastStr,
+                sLastName = sLastStr,
+                email = emailStr,
+                phone = phoneStr,
+                address = addressStr
+            )
+
+            lifecycleScope.launch {
+                try {
+
+                    val updated = ApiClient.vetApi.updateOwner(ownerId, body)
+
+
+                    prefs.edit()
+                        .putString(KEY_OWNER_NAME, updated.name)
+                        .putString(KEY_OWNER_FLAST, updated.fLastName)
+                        .putString(KEY_OWNER_SLAST, updated.sLastName)
+                        .putString(KEY_OWNER_EMAIL, updated.email)
+                        .putString(KEY_OWNER_PHONE, updated.phone)
+                        .putString(KEY_OWNER_ADDRESS, updated.address)
+                        .apply()
+
+
+                    loadPersonInfo()
+
+                    Toast.makeText(this@PersonDetailsActivity, "Actualizado correctamente", Toast.LENGTH_SHORT).show()
+                    dialog.dismiss()
+
+                } catch (e: HttpException) {
+                    Toast.makeText(
+                        this@PersonDetailsActivity,
+                        "Error servidor (${e.code()})",
+                        Toast.LENGTH_LONG
+                    ).show()
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                    Toast.makeText(
+                        this@PersonDetailsActivity,
+                        "Error de conexión: ${e.message}",
+                        Toast.LENGTH_LONG
+                    ).show()
+                }
+            }
+        }
     }
 }
