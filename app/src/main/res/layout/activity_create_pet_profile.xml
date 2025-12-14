@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".CreatePetProfileActivity">
@@ -18,16 +16,14 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Crear Perfil de Mascota"
+                android:text="@string/create_pet_profile"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginBottom="24dp" />
-
 
             <ImageView
                 android:id="@+id/imgPhotoPet"
@@ -35,20 +31,17 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background"
-                android:background="#DDDDDD"
+                android:background="@color/gray_ddd"
                 android:layout_marginBottom="12dp"
-                android:contentDescription="Foto de la mascota" />
-
+                android:contentDescription="@string/pet_photo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Toca el botón de cámara o galería para agregar una imagen"
+                android:text="@string/tap_to_add_image"
                 android:layout_gravity="center"
                 android:textSize="12sp"
                 android:layout_marginBottom="16dp"/>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -63,23 +56,22 @@
                     android:layout_height="60dp"
                     android:layout_marginEnd="20dp"
                     android:background="@android:color/transparent"
-                    android:contentDescription="Tomar foto"
-                    android:scaleType="centerInside"
-                    tools:srcCompat="@android:drawable/ic_menu_camera" />
+                    android:contentDescription="@string/take_photo"
+                    android:src="@android:drawable/ic_menu_camera"
+                    android:scaleType="centerInside"/>
 
                 <Button
                     android:id="@+id/btnPhotoPet"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
-                    android:text="Galería" />
+                    android:text="@string/gallery" />
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombre"
+                android:text="@string/pet_name_label"
                 android:layout_marginBottom="4dp"/>
 
             <EditText
@@ -87,26 +79,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="12dp"
-                android:hint="Ej: Rocky"
+                android:hint="@string/pet_name_hint"
                 android:layout_marginBottom="16dp"/>
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Raza"
+                android:text="@string/breed_label"
                 android:layout_marginBottom="4dp"/>
+
             <Spinner
                 android:id="@+id/txtBreedPet"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Edad"
+                android:text="@string/pet_age_label"
                 android:layout_marginBottom="4dp"/>
 
             <EditText
@@ -117,11 +108,10 @@
                 android:padding="12dp"
                 android:layout_marginBottom="16dp" />
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Unidad"
+                android:text="@string/unit_label"
                 android:layout_marginBottom="4dp"/>
 
             <Spinner
@@ -130,11 +120,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"/>
 
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Género"
+                android:text="@string/gender_label"
                 android:layout_marginBottom="8dp"/>
 
             <RadioGroup
@@ -149,7 +138,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Macho"
+                    android:text="@string/male"
                     android:checked="true"/>
 
                 <RadioButton
@@ -157,15 +146,15 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Hembra"/>
+                    android:text="@string/female"/>
             </RadioGroup>
-
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Descripción"
+                android:text="@string/description_label"
                 android:layout_marginBottom="4dp"/>
+
             <EditText
                 android:id="@+id/et_descripcion"
                 android:layout_width="match_parent"
@@ -173,21 +162,18 @@
                 android:padding="12dp"
                 android:gravity="top"
                 android:inputType="textMultiLine"
-                android:hint="Escribe una breve biografía..."
+                android:hint="@string/pet_description_hint"
                 android:layout_marginBottom="24dp"/>
-
 
             <Button
                 android:id="@+id/btnSavePetProfile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Guardar"
+                android:text="@string/save"
                 android:padding="14dp"
                 android:textSize="18sp"
                 android:textColor="@android:color/white"
-                android:backgroundTint="#007AFF"/>
-
+                android:backgroundTint="@color/save_blue"/>
         </LinearLayout>
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

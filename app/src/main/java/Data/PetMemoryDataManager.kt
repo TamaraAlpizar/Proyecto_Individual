@@ -26,6 +26,6 @@ object PetMemoryDataManager : IPetDataManager {
     }
 
     override fun getByOwnerId(ownerId: String): List<Pet> {
-        return petList.filter { it.ownerId.trim() == ownerId.trim() }
+        return petList.filter { it.OwnerId.trim() == ownerId.trim() }
     }
 }

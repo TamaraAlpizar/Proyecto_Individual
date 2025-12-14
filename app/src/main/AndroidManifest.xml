@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:allowBackup="true"
@@ -12,6 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PetCare">
         <activity
+            android:name=".appointment_summary"
+            android:exported="true" />
+        <activity
+            android:name=".pet_summary"
+            android:exported="true" />
+        <activity
+            android:name=".AppointmentListActivity"
+            android:exported="true" />
+        <activity
             android:name=".dialog_edit_person"
             android:exported="true" />
         <activity
@@ -20,7 +30,7 @@
             android:theme="@style/Theme.PetCare" />
         <activity
             android:name=".AgendarCitaActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".HomeActivity"
             android:exported="true" />
