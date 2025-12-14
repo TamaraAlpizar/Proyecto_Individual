@@ -8,3 +8,125 @@ Una vez registradas las mascotas, el usuario podrá **agendar citas para revisio
 Además, la aplicación permitirá **ver las citas agendadas**, así como **consultar el historial médico de cada mascota**, de manera que los dueños puedan llevar un control fácil y rápido del cuidado de sus animales.
 
 ![Imagen Mockup](https://github.com/TamaraAlpizar/Proyecto_Individual/blob/main/Mockup/Mockup.png)
+
+Endpoint de prueba (Health Check)
+🔹 Comprobar que la API funciona
+
+GET /
+
+Respuesta esperada:
+
+🐶 Veterinaria API - ¡TODO FUNCIONA PERFECTO!
+
+
+Ejemplo:
+
+GET https://petcare-rg-hjcydddmfpg2eud2.canadacentral-01.azurewebsites.net/
+
+Owners (Dueños)
+Crear dueño
+
+POST /owners
+
+Body (JSON):
+
+{
+  "name": "Fabiana",
+  "fLastName": "Castro",
+  "sLastName": "Jimenez",
+  "email": "fabiana@email.com",
+  "password": "12345",
+  "phone": "8888-8888",
+  "address": "Costa Rica"
+}
+
+Obtener todos los dueños
+
+GET /owners
+
+GET /owners
+
+Editar dueño
+
+PUT /owners/:id
+
+PUT /owners/{id}
+
+🗑️ Eliminar dueño
+
+DELETE /owners/:id
+
+DELETE /owners/{id}
+
+Pets (Mascotas)
+Crear mascota
+
+POST /pets
+
+Body (JSON):
+
+{
+  "petName": "Firulais",
+  "breed": "Labrador",
+  "gender": "Macho",
+  "age": 3,
+  "weight": 12.4,
+  "ownerId": "ID_DEL_DUEÑO",
+  "notes": "Muy juguetón"
+}
+
+Obtener todas las mascotas
+
+GET /pets
+
+GET /pets
+
+Editar mascota
+
+PUT /pets/:id
+
+PUT /pets/{id}
+
+🗑️ Eliminar mascota
+
+DELETE /pets/:id
+
+DELETE /pets/{id}
+
+Appointments (Citas)
+Crear cita
+
+POST /appointments
+
+Body (JSON):
+
+{
+  "petId": "ID_MASCOTA",
+  "serviceType": "Vacunación",
+  "date": "2025-01-20",
+  "hour": "14:00",
+  "notes": "Revisión general"
+}
+
+Obtener todas las citas
+
+GET /appointments
+
+Las citas se devuelven ordenadas de forma descendente por fecha
+
+GET /appointments
+
+Editar estado de la cita
+
+PUT /appointments/:id
+
+PUT /appointments/{id}
+
+Eliminar cita
+
+DELETE /appointments/:id
+
+DELETE /appointments/{id}
+
+# Link del video
+https://youtu.be/UBROKYf7MHI
